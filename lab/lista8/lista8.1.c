@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-typedef struct  
+typedef struct  /*struct de cliente*/
 {
 	char nome[40];
 	int valor;
@@ -12,7 +12,7 @@ typedef struct
 }Cliente;
 Cliente cliente[3];
 
-void print_struct(Cliente *cliente)
+void print_struct(Cliente *cliente) /*Funcao que imprime todo o vetor de struct */
 {
 	int i;
 	for(i=0;i<3;i++)
@@ -22,7 +22,7 @@ void print_struct(Cliente *cliente)
 		printf("sexo:%s\n",cliente[i].sexo);
 	}
 }
-int maio_qnt (int x,int y,int z)
+int maio_qnt (int x,int y,int z) /*Funcao que calcula o maior quantidade vendida,passando o contador de cada revista*/
 {
 	
 	if( x>y && x>z){
@@ -39,7 +39,7 @@ int maio_qnt (int x,int y,int z)
 
 }
 
-void menor_qnt(int x,int y,int z)
+void menor_qnt(int x,int y,int z)/*Funcao que calcula o menor quantidade vendida,passando o contador de cada revista*/
 {
 	if(x<y && x<z)
 	{
@@ -55,12 +55,12 @@ void menor_qnt(int x,int y,int z)
 	}
 }
 
-int idade_media(int acum,int qnt)
+int idade_media(int acum,int qnt) /*funcao que o calculo de uma media*/
 {
 	return acum/qnt;
 }
 
-int qnt_masculino(char *sexo)
+int qnt_masculino(char *sexo) /*funcao que conta a quantidade de pessoas de um determinado sexo*/
 {
 	int acum=0;
 	if(strcmp(sexo,"masculino")==0)
@@ -70,7 +70,7 @@ int qnt_masculino(char *sexo)
 	return acum;
 }
 
-int qnt_feminio(char *sexo)
+int qnt_feminio(char *sexo) /*funcao que conta a quantidade de pessoas de um determinado sexo*/
 {
 	int acum=0;
 	if(strcmp(sexo,"feminino")==0)
