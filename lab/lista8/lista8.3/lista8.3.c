@@ -85,5 +85,11 @@ int main(int argc, char const *argv[])
 	printf("a média do salario do DP.Secretaria %0.2f\n",med3);
 	printf("a média do salario do DP.Secretaria %0.2f\n",med4);
 	printf("******************************\n");
+	med_menor(med1,med2,med3,med4);
+	printf("******************************\n");
+	medint = med_insti(fuc);
+	printf("o salario medio da instituicao é %0.2f\n",medint);
+	printf("******************************\n");
+
 	return 0;
 }
