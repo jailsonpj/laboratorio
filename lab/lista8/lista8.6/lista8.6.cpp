@@ -12,10 +12,19 @@ int main(int argc, char const *argv[])
 		printf("Valor da venda: ");
 		setbuf(stdin,NULL);
 		scanf("%f",&vendedor[i].valor);
+		printf("Valor do percentual da comissão: ");
+		setbuf(stdin,NULL);
+		scanf("%f",vendedor[i].percent);
 		printf("Tipo de imóvel vendido: ");
 		setbuf(stdin,NULL);
 		scanf("%s",vendedor[i].imovel);
-
 	}
+	
+	printf("******************\n");
+	print_vendedor(vendedor);
+	printf("******************\n");
+	print_maior(vendedor);
+	printf("******************\n");
+
 	return 0;
 }
