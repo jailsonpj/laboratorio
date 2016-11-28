@@ -41,3 +41,22 @@ void print_maior (Vendas *aux)
 	printf("o codigo do vendedor com a maior comissão é :%d\n",aux[cont].codigo );
 
 }
+
+void print_quant (Vendas *aux)
+{
+	int qntc=0,qnta=0;
+	for (int i = 0; i < tam; ++i)
+	{	
+		if (strcmp(aux[i].imovel,"casa") == 0)
+		{
+			qntc = qntc + 1;
+		}
+		if (strcmp(aux[i].imovel,"apto") == 0)
+		{
+			qnta = qnta + 1;
+		}
+	}
+
+	printf("A quantidade de casas vendidas é %d\n", qntc );
+	printf("A quantidade de apartamentos vendidos é %d\n",qnta );
+}

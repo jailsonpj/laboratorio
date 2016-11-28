@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
 	printf("******************\n");
 	print_maior(vendedor);
 	printf("******************\n");
+	print_quant(vendedor);
 
 	return 0;
 }
