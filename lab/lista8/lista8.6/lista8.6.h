@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define tam 2
 
 typedef struct vendas Vendas;
@@ -59,4 +60,23 @@ void print_quant (Vendas *aux)
 
 	printf("A quantidade de casas vendidas é %d\n", qntc );
 	printf("A quantidade de apartamentos vendidos é %d\n",qnta );
+}
+
+float media_venda(Vendas *aux)
+{
+	float media;
+
+	for (int i = 0; i < tam; ++i)
+	{
+		media = media + aux[i].valor;
+	}
+
+	return media/tam;
+}
+
+void media (Vendas *aux)
+{
+	
+	printf("o valor da media dos imoveis estão %0.2f\n",media_venda(aux));
+
 }
