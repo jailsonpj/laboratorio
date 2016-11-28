@@ -48,19 +48,22 @@ void print_regi(Regi *aux)
 	for (int i = 0; i < tam; ++i)
 	{
 		printf("***Registros Cadastrados***\n");
-		printf("Matricula:%d",aux[i].mat);
-		printf("Nome:%s",aux[i].nome);
-		printf("Salário Bruto:%0.2f",aux[i].salario);
+		printf("Matricula:%d\n",aux[i].mat);
+		printf("Nome:%s\n",aux[i].nome);
+		printf("Salário Bruto:%0.2f\n",aux[i].salario);
 		if (aux[i].trc == 1)
 		{
-			printf("o valor do IRRF:%0.2f",valor_irrf(aux,i));
+			printf("o valor do IRRF:%0.2f\n",valor_irrf(aux,i));
+			printf("o valor do FGTS:%0.2f\n",valor_fgts(aux,i));
+			printf("o valor do 13 salario:%0.2f\n",valor_sal13(aux,i));
 		}
-		/*else
+		else
 		{
 			if(aux[i].trc == 2)
 			{
-
+				printf("o valor do IRRF:%0.2f\n",valor_irrf(aux,i));
+				printf("o valor do 13 salario:%0.2f\n",valor_sal13(aux,i));
 			}
-		}*/
+		}
 	}
 }
