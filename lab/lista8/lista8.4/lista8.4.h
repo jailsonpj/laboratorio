@@ -33,12 +33,28 @@ void media_time(Time *aux)
 		}
 
 		printf("A média de idade do time %s\t",aux[i].nome );
-		printf("é:%0.2f\n",midade/2);
+		printf("é:%0.2f\n",midade/cont);
+		printf("A média do peso do time %s\t",aux[i].nome );
+		printf("é:%0.2f\n",mpeso/cont);	
 
 	}
 }
 
 void media_parti(Time *aux)
 {
+	float midade=0,mpeso=0;
+
+	for (int i = 0; i < tam; ++i)
+	{
+		
+		for (int j = 0; j < cont; ++j)
+		{
+			mpeso = mpeso + aux[i].jogador[j].peso;
+			midade=midade+aux[i].jogador[j].idade;
+		}
+
+	}
+	printf("A média das idades dos participantes:%0.2f\n",midade/tam);
+	printf("A média dos pesos dos participantes:%0.2f\n",mpeso/tam);
 
 }

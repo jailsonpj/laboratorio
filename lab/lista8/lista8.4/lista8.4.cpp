@@ -35,6 +35,7 @@ int main(int argc, char const *argv[])
 		}
 	}
 	media_time(pais);
+	media_parti(pais);
 
 	return 0;
 }
