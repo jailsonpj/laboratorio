@@ -76,3 +76,71 @@ void qnt_idade (Aluno *aux)
 
 
 }
+
+int maior(int a,int b,int c)
+{
+	
+
+	if(a>b && a>c)
+	{
+		return a;
+	}
+	else
+	{
+		if(b>c)
+		{
+			return b;
+		}
+		else
+		{
+			return c;
+		}
+	}
+}
+
+void maior_media(Aluno *aux)
+{
+	int qnt1=0,qnt2=0,qnt3=0;
+	int med1,med2,med3;
+	int acum1=0,acum2=0,acum3=0;
+
+	for (int i = 0; i < tam; ++i)
+	{
+		if (aux[i].codigo == 1)
+		{
+			acum1 = acum1 + aux[i].idade;
+			qnt1 = qnt1 + 1;
+		}
+		if (aux[i].codigo == 2)
+		{
+			acum2 = acum2 + aux[i].idade;
+			qnt2 = qnt2 + 1;
+		}
+		if (aux[i].codigo == 3)
+		{
+			acum3 = acum3 + aux[i].idade;
+			qnt3 = qnt3 + 1;
+		}
+	}
+
+	med1 = acum1/qnt1;
+	med2 = acum2/qnt2;
+	med3 = acum3/qnt3;
+
+	if(med1 == maior(med1,med2,med3))
+	{
+		printf("o curso com maior média é Engenharia\n");
+
+	}
+	else
+	{
+		if (med2 == maior(med1,med2,med3))
+		{
+			printf("o curso com maior média é Computação\n");
+		}
+		else
+		{
+			printf("o curso com maior média é Administração\n");
+		}
+	}
+}

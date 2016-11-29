@@ -13,15 +13,18 @@ int main(int argc, char const *argv[])
 		printf("1-Engenharia\n");
 		printf("2-Computação\n");
 		printf("3-Administração\n");
-		scanf("%d",alu[i].codigo);
+		setbuf(stdin,NULL);
+		scanf("%d",&alu[i].codigo);
 		printf("Digite idade: ");
-		scanf("%d",alu[i].idade);
+		setbuf(stdin,NULL);
+		scanf("%d",&alu[i].idade);
+		setbuf(stdin,NULL);
 	}
 
 	numero_alunos(alu);
 	printf("****************\n");
 	qnt_idade(alu);
 	printf("****************\n");
-	
+	maior_media(alu);
 	return 0;
 }
