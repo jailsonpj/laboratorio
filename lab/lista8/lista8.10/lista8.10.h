@@ -80,12 +80,12 @@ void mostra()
 {
 	for (int i = 0; i < max_loja; ++i)
 	{
-		if(lj[i].name != NULL)
+		if(strcmp(lj[i].name,"\0") != 0)
 		{
 			printf("LOJA:%s\n",lj[i].name);
 			for (int j = 0; j < max_prod; ++j)
 			{
-				if(lj[i].item[j].nome != NULL)
+				if(strcmp(lj[i].item[j].nome,"\0") != 0)
 				{
 					printf("Produto:%s\n",lj[i].item[j].nome);
 					printf("Preço:%0.2f\n",lj[i].item[j].preco );
