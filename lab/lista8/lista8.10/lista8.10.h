@@ -22,6 +22,47 @@ struct loja
 
 Loja lj[max_loja];
 
+void diminuir_qnt()
+{
+	int cont=0,contp=0;
+	int aux1,qnt,resu;
+	char nome[100];
+	char prod[100];
+
+
+	printf("Nome da loja que o produto foi comprado: ");
+	scanf("%s",nome);
+	aux = 0;
+	while (cont < max_loja && aux != 1)
+	{
+		if (strcmp(lj[cont].name,nome) == 0 )
+		{
+	
+			printf("Nome do produto para diminuir quantidade: ");
+			scanf("%s",prod);
+			while(contp < max_prod && aux != 1)
+			{
+
+				if (strcmp(lj[cont].item[contp].nome,prod) == 0)
+				{
+					printf("Quantos produtos foram comprados: ");
+					scanf("%d",&qnt);
+			
+
+					resu = lj[cont].item[contp].unidade - qnt;
+					lj[cont].item[contp].unidade = resu;
+					//contp++;
+					aux = 1;
+				}
+
+				contp++;
+			}
+		}
+	
+		cont++;
+	}
+}
+
 void inserir_produto()
 {
 	int cont = 0,contp = 0;
