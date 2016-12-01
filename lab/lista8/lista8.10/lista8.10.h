@@ -25,7 +25,7 @@ Loja lj[max_loja];
 void diminuir_qnt()
 {
 	int cont=0,contp=0;
-	int aux1,qnt,resu;
+	int aux,qnt,resu;
 	char nome[100];
 	char prod[100];
 
