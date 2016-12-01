@@ -35,7 +35,7 @@ void menu()
 /*  - Salário Bruto ->> "salarioBruto"   */
 double calculaFerias (Registro* aux, int posicao)
 {
-  aux = (Registro*) malloc(sizeof(Registro));
+  //aux = (Registro*) malloc(sizeof(Registro));
 
   double resultado = ( aux[posicao].ferias
                      * aux[posicao].salarioBruto );
@@ -49,7 +49,7 @@ double calculaFerias (Registro* aux, int posicao)
 /*  - Salário bruto ->> "salarioBruto"    */
 double calcula13 (Registro* aux, int posicao)
 {
-  aux = (Registro*) malloc(sizeof(Registro));
+  //aux = (Registro*) malloc(sizeof(Registro));
 
   double resultado = ( aux[posicao].salario13
                      * aux[posicao].salarioBruto );
@@ -65,7 +65,7 @@ double calcula13 (Registro* aux, int posicao)
 /*  - Avos do 13º salário ->> "salario13"         */
 double FGTS (Registro* aux, int posicao)
 {
-  aux = (Registro*) malloc(sizeof(Registro));
+  //aux = (Registro*) malloc(sizeof(Registro));
   double dec13 = calcula13(aux,posicao);
   double valorFerias = calculaFerias(aux,posicao);
 
@@ -86,7 +86,7 @@ double FGTS (Registro* aux, int posicao)
 /*  - FGTS ->> "FGTS(struct, posicao)"           */
 double valorInicial (Registro* aux, int posicao)
 {
-  aux = (Registro*) malloc(sizeof(Registro));
+  //aux = (Registro*) malloc(sizeof(Registro));
 
   double dec13 = calcula13(aux,posicao);
   double valorFerias = calculaFerias(aux,posicao);
@@ -107,7 +107,7 @@ double valorInicial (Registro* aux, int posicao)
 /*  caso seja necessário conforme o código mostra          */
 double valorIRRF (Registro* aux, int posicao)
 {
-  aux = (Registro*) malloc(sizeof(Registro));
+  //aux = (Registro*) malloc(sizeof(Registro));
 
   double vInicial = valorInicial(aux, posicao);
 
