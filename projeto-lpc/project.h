@@ -35,6 +35,8 @@ void menu()
 /*  - Salário Bruto ->> "salarioBruto"   */
 double calculaFerias (Registro* aux, int posicao)
 {
+  aux = (Registro*) malloc(sizeof(Registro));
+
   double resultado = ( aux[posicao].ferias
                      * aux[posicao].salarioBruto );
 
@@ -47,6 +49,8 @@ double calculaFerias (Registro* aux, int posicao)
 /*  - Salário bruto ->> "salarioBruto"    */
 double calcula13 (Registro* aux, int posicao)
 {
+  aux = (Registro*) malloc(sizeof(Registro));
+
   double resultado = ( aux[posicao].salario13
                      * aux[posicao].salarioBruto );
 
@@ -61,6 +65,7 @@ double calcula13 (Registro* aux, int posicao)
 /*  - Avos do 13º salário ->> "salario13"         */
 double FGTS (Registro* aux, int posicao)
 {
+  aux = (Registro*) malloc(sizeof(Registro));
   double dec13 = calcula13(aux,posicao);
   double valorFerias = calculaFerias(aux,posicao);
 
@@ -81,6 +86,8 @@ double FGTS (Registro* aux, int posicao)
 /*  - FGTS ->> "FGTS(struct, posicao)"           */
 double valorInicial (Registro* aux, int posicao)
 {
+  aux = (Registro*) malloc(sizeof(Registro));
+
   double dec13 = calcula13(aux,posicao);
   double valorFerias = calculaFerias(aux,posicao);
   double valorFGTS = FGTS(aux,posicao);
@@ -100,6 +107,8 @@ double valorInicial (Registro* aux, int posicao)
 /*  caso seja necessário conforme o código mostra          */
 double valorIRRF (Registro* aux, int posicao)
 {
+  aux = (Registro*) malloc(sizeof(Registro));
+
   double vInicial = valorInicial(aux, posicao);
 
   if (vInicial <= 900.00)
@@ -120,20 +129,20 @@ void mostrarRegistro (Registro* aux)
     printf("\t\n*** - Registros cadastrados - ***\n");
     printf("Matricula: %d\n", aux[i].matricula);
     printf("Nome: %s\n", aux[i].nome);
-    printf("Salário Bruto: %.2f\n", aux[i].salarioBruto);
+    printf("Salário Bruto: %.2lf\n", aux[i].salarioBruto);
 
     if (aux[i].tipoRescisao == 1)
     {
-      printf("o valor do IRRF: %.2f\n",valorIRRF(aux,i));
-      printf("o valor do FGTS: %.2f\n", FGTS(aux,i));
-      printf("o valor do 13 salario: %.2f\n", calcula13(aux,i));
+      printf("o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
+      printf("o valor do FGTS: %.2lf\n", FGTS(aux,i));
+      printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
     }
     else
     {
       if(aux[i].tipoRescisao == 2)
       {
-        printf("o valor do IRRF: %.2f\n", valorIRRF(aux,i));
-        printf("o valor do 13 salario: %.2f\n", calcula13(aux,i));
+        printf("o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
+        printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
       }
     }
 
