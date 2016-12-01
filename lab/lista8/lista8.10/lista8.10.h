@@ -1,66 +1,125 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define max_loja 2
+#define max_prod 2
 
-typedef struct prod Prod;
-struct prod
+typedef struct produto Produto;
+struct produto
 {
-	char nome[40];
-	int uni;
+	char nome[100];
 	float preco;
+	int unidade;
 };
 
-typedef struct no No;
-struct no
+typedef struct loja Loja;
+struct loja
 {
-	char name[40];
-	float total;
-	Prod p[2];
-	No *prox;
-
+	char name[100];
+	Produto item[max_prod];
 };
 
-typedef struct lista Lista;
-struct lista
-{
-	No *prim,*ult;
-};
+Loja lj[max_loja];
 
-void cria(Lista *l)
+void inserir_produto()
 {
-	l->prim = (No*)malloc(sizeof(No));
-	l->prim->prox = NULL;
-	l->ult = l->prim;
-}
+	int cont = 0,contp = 0;
+	int aux;
+	char nome[100];
 
-void inserir(Lista *l,char *n,char *produto,int unidade,float preco,int i)
-{
-	l->ult->prox = (No*)malloc(sizeof(No));
-	l->ult= l->ult->prox;
-	l->ult->prox = NULL;
-	strcpy(l->ult->name,n);
-	strcpy(l->ult->p[i].nome,produto);
-	l->ult->p[i].uni = unidade;
-	l->ult->p[i].preco = preco; 
-	
-}
-void mostra (Lista *l)
-{
-	printf("Lista:\n");
-	No *p = l->prim->prox;
-	while(p != NULL)
+
+	printf("Inserir produto em qual loja: ");
+	scanf("%s",nome);
+	aux = 0;
+	while(cont < max_loja && aux != 1)
 	{
-		printf("Nome loja:%s\n",p->name );
-		for (int i = 0; i < 2; ++i)
+		if (strcmp(lj[cont].name,nome) == 0)
 		{
-			printf("Nome produto:%s\n",p->p[i].nome );
-			printf("Preço produto:%0.2f\n",p->p[i].preco);
-			printf("Unidade disponiveis:%d\n",p->p[i].uni);
-		}
+			if(contp < max_prod && aux != 1)
+			{
+				printf("Digite o nome do produto: ");
+				scanf("%s",lj[cont].item[contp].nome);
+				printf("Informe preço do produto: ");
+				scanf("%f",&lj[cont].item[contp].preco);
+				printf("Informe quantidade de unidade no estoque: ");
+				scanf("%d",&lj[cont].item[contp].unidade);
+				contp++;
+				aux = 1;
+			
 		
+			}
+			else
+			{
+				printf("Não é possivel mais registrar produto\n");
+			}
+		}
 
-		p = p->prox;
+		cont++;
 	}
 
-	printf("\n");
+} 
+
+void inserir_loja()
+{
+	int cont = 0;
+	
+	if(cont < max_loja)
+	{
+		printf("Digite nome da loja: ");
+		scanf("%s",lj[cont].name);
+		cont = cont + 1;
+	}
+	else
+	{
+		printf("Quantidade máxima de lojas cadastradas\n");
+	}
 }
+
+void mostra()
+{
+	for (int i = 0; i < max_loja; ++i)
+	{
+		if(lj[i].name != NULL)
+		{
+			printf("LOJA:%s\n",lj[i].name);
+			for (int j = 0; j < max_prod; ++j)
+			{
+				if(lj[i].item[j].nome != NULL)
+				{
+					printf("Produto:%s\n",lj[i].item[j].nome);
+					printf("Preço:%0.2f\n",lj[i].item[j].preco );
+					printf("Unidade no estoque:%d\n",lj[i].item[j].unidade );
+				}
+			}
+		}
+	}
+}
+
+void opcao (int op)
+{
+
+	if (op == 1)
+	{
+		inserir_loja();
+	}
+	if (op == 2)
+	{
+		inserir_produto();
+	}
+	if (op == 3)
+	{
+		mostra();
+	}
+}
+
+void menu()
+{
+  printf("-***************- MENU -***************-\n\n");
+  printf("\t 1 -> Nova loja \n");
+  printf("\t 2 -> Incluir produto \n");
+  printf("\t 3 -> Mostrar loja e produtos \n");
+  printf("\t 4 -> Sair \n\n");
+  printf("-**************----------**************-\n\n");
+}
+
