@@ -165,7 +165,7 @@ void recebeRegistros (Registro* aux, int posicao)
 
   printf("Salário: ");
   setbuf(stdin,NULL);
-  scanf("%f",&salarioBruto);
+  scanf("%lf",&salarioBruto);
   aux[posicao].salarioBruto = salarioBruto;
 
   printf("Férias: ");

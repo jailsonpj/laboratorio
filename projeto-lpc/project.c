@@ -28,7 +28,11 @@ int main(int argc, char const *argv[])
   printf("\t\n*** - Registros cadastrados - ***\n");
   printf("Matricula: %d\n", registros[0].matricula);
   printf("Nome: %s\n", registros[0].nome);
-  printf("Salário Bruto: %.2f\n", registros[0].salarioBruto);
+  printf("Salário Bruto: %.lf\n", registros[0].salarioBruto);
+  printf("Avos de Férias: %.1f\n", registros[0].ferias);
+  printf("Avos de 13º salário: %.1f\n", registros[0].salario13);
+  printf("Tempo de trabalho (casa): %d\n", registros[0].tempoCasa);
+  printf("Tipo de rescisão: %d\n\n", registros[0].tipoRescisao);
 
 
   fclose(arq);
