@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
   if (arq == NULL)
     exit(1);
   else
-    while (fscanf(arq, "%d %s %f %f %f %d %d",
+    while (fscanf(arq, "%d %s %lf %f %f %d %d",
                   &registros[0].matricula,
                   registros[0].nome,
                   &registros[0].salarioBruto,
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
   printf("\t\n*** - Registros cadastrados - ***\n");
   printf("Matricula: %d\n", registros[0].matricula);
   printf("Nome: %s\n", registros[0].nome);
-  printf("Salário Bruto: %.lf\n", registros[0].salarioBruto);
+  printf("Salário Bruto: %.2lf\n", registros[0].salarioBruto);
   printf("Avos de Férias: %.1f\n", registros[0].ferias);
   printf("Avos de 13º salário: %.1f\n", registros[0].salario13);
   printf("Tempo de trabalho (casa): %d\n", registros[0].tempoCasa);
