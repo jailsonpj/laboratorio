@@ -22,7 +22,7 @@ void menu()
   printf("\t (1) -> Cadastrar novo funcionário \n");
   printf("\t (2) -> Mostrar relatório de funcionário [x] \n");
   printf("\t (3) -> Mostrar relatório de todos os funcionários \n");
-  printf("\t (-1) -> Sair \n\n");
+  printf("\t (4) -> Sair \n\n");
   printf("-*****************************----------*****************************-\n\n");
 }
 
@@ -141,8 +141,6 @@ void mostrarRegistro (Registro* aux)
 
 void recebeRegistros (Registro* aux, int posicao)
 {
-  //int posicao = 0;
-
   setbuf(stdin,NULL);
   printf("************\n");
   printf("Matrícula: ");
@@ -166,9 +164,4 @@ void recebeRegistros (Registro* aux, int posicao)
   printf("Tipo de Rescisão: ");
   setbuf(stdin,NULL);
   scanf("%d",&aux[posicao].tipoRescisao);
-/*
-  do
-  {
-  } while(aux[posicao].matricula != -1 || posicao < TAM);
-*/
 }
