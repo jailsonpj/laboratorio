@@ -30,7 +30,7 @@ void menu()
 /*** Funções que serão utilizadas ***/
 
 /**           Cáculo das Férias         **/
-/* Utiliza os campos da estrura:          */
+/* Utiliza os campos da estrura:         */
 /*  - Avos de Férias ->> "ferias"        */
 /*  - Salário Bruto ->> "salarioBruto"   */
 double calculaFerias (Registro* aux, int posicao)
@@ -44,7 +44,7 @@ double calculaFerias (Registro* aux, int posicao)
 }
 
 /**         Cálculo do 13º salário       **/
-/* Utiliza os campos da estrutura:         */
+/* Utiliza os campos da estrutura:        */
 /*  - Avos de 13º salario ->> "salario13" */
 /*  - Salário bruto ->> "salarioBruto"    */
 double calcula13 (Registro* aux, int posicao)
@@ -57,10 +57,10 @@ double calcula13 (Registro* aux, int posicao)
   return resultado;
 }
 
-/**           Cálculo do FGTS            **/
-/* Utiliza os campos da estrutura:         */
-/*  - Tempo de casa ->> "tempoCasa"       */
-/*  - Salario bruto ->> "salarioBruto"    */
+/**                 Cálculo do FGTS              **/
+/* Utiliza os campos da estrutura:                */
+/*  - Tempo de casa ->> "tempoCasa"               */
+/*  - Salario bruto ->> "salarioBruto"            */
 /*  - Avos de Férias ->> "ferias"                 */
 /*  - Avos do 13º salário ->> "salario13"         */
 double FGTS (Registro* aux, int posicao)
@@ -145,7 +145,6 @@ void mostrarRegistro (Registro* aux)
         printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
       }
     }
-
   }
 }
 
@@ -153,6 +152,7 @@ void recebeRegistros (Registro* aux, int posicao)
 {
   int matricula;
   char nome[100];
+  //nome = (char *) malloc(sizeof(char) * 10);
   double salarioBruto;
   float ferias;
   float salario13;
