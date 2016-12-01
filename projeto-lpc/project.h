@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define TAM 1 // Quantidade de registros
 
 /* Estrutura com os dados que serão utilizados */
@@ -141,27 +142,49 @@ void mostrarRegistro (Registro* aux)
 
 void recebeRegistros (Registro* aux, int posicao)
 {
-  setbuf(stdin,NULL);
+  int matricula;
+  char nome[100];
+  double salarioBruto;
+  float ferias;
+  float salario13;
+  int tempoCasa; // em anos
+  int tipoRescisao; // 1 ou 2
+
   printf("************\n");
+
   printf("Matrícula: ");
   setbuf(stdin,NULL);
-  scanf("%d",&aux[posicao].matricula);
+
+  scanf("%d",&matricula);
+  aux[posicao].matricula = matricula;
+
   printf("Nome: ");
   setbuf(stdin,NULL);
-  scanf("%s",aux[posicao].nome);
+  scanf("%s", nome);
+  strcpy(aux[posicao].nome, nome);
+
   printf("Salário: ");
   setbuf(stdin,NULL);
-  scanf("%f",&aux[posicao].salarioBruto);
+  scanf("%f",&salarioBruto);
+  aux[posicao].salarioBruto = salarioBruto;
+
   printf("Férias: ");
   setbuf(stdin,NULL);
-  scanf("%f",&aux[posicao].ferias);
+  scanf("%f",&ferias);
+  aux[posicao].ferias = ferias;
+
   printf("13º salario: ");
   setbuf(stdin,NULL);
-  scanf("%f",&aux[posicao].salario13);
+  scanf("%f",&salario13);
+  aux[posicao].salario13 = salario13;
+
   printf("Tempo de casa: ");
   setbuf(stdin,NULL);
-  scanf("%d",&aux[posicao].tempoCasa);
+  scanf("%d",&tempoCasa);
+  aux[posicao].tempoCasa = tempoCasa;
+
   printf("Tipo de Rescisão: ");
   setbuf(stdin,NULL);
-  scanf("%d",&aux[posicao].tipoRescisao);
+  scanf("%d",&tipoRescisao);
+  aux[posicao].tipoRescisao = tipoRescisao;
 }
