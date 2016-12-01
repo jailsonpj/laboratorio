@@ -5,7 +5,8 @@
 int main()
 {
 
-  char url[] = "teste.txt";
+
+  char url[] = "teste.txt"; // nome do arquivo que será lido
 
   Registro* registros;//[TAM];
   registros = (Registro*) malloc(sizeof(Registro) * TAM);
