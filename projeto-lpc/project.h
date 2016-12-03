@@ -3,6 +3,7 @@
 #include <string.h>
 #define TAM 1 // Quantidade de registros
 
+
 /* Estrutura com os dados que serão utilizados */
 typedef struct registro Registro;
 struct registro
