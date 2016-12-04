@@ -5,20 +5,37 @@
 int main()
 {
 
-
+  int opcao, cPos = 0;
   char url[] = "teste.txt"; // nome do arquivo que será lido
 
   Registro* registros;
-  registros = (Registro*) malloc(sizeof(Registro) * TAM);
+  registros = (Registro*) malloc(sizeof(Registro));
 
   FILE *arq;
   arq =  fopen(url, "w"); // ou "a" para append
 
-  menu();
+  while (opcao != -1)
+  {
+    menu();
+    scanf("%d", &opcao);
 
-  for (int i = 0; i < TAM; i++)
-    recebeRegistros(registros, i);
-  imprimirRegistro(registros, arq);
-
+    switch (opcao) {
+      case 1:
+        system("clear");
+        recebeRegistros(registros, cPos);
+        cPos++;
+        break;
+      case 2:
+        system("clear");
+        mostrarNaTela(registros, cPos);
+        break;
+      case 3:
+        system("clear");
+        imprimirRegistro(registros, arq, cPos);
+        printf("Valor salvo em arquivo com sucesso\n\n");
+        break;
+    }
+  }
+  
   return 0;
 }

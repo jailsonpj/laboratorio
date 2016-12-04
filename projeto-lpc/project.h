@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define TAM 3 // Quantidade máxima de funcionários que podem ser registrados
+//#define TAM 3 // Quantidade máxima de funcionários que podem ser registrados
 
 
 /* Estrutura com os dados que serão utilizados */
@@ -22,9 +22,9 @@ void menu()
 {
   printf("-******************************- MENU -******************************-\n\n");
   printf("\t (1) -> Cadastrar novo funcionário \n");
-  printf("\t (2) -> Mostrar relatório de funcionário [x] \n");
-  printf("\t (3) -> Mostrar relatório de todos os funcionários \n");
-  printf("\t (4) -> Sair \n\n");
+  printf("\t (2) -> Mostrar relatório de todos os funcionários \n");
+  printf("\t (3) -> Guardar mudanças\n");
+  printf("\t (-1) -> Sair \n\n");
   printf("-*****************************----------*****************************-\n\n");
 }
 
@@ -98,18 +98,18 @@ double valorIRRF (Registro* aux, int posicao)
 {
   double vInicial = valorInicial(aux, posicao);
   if (vInicial <= 900.00)
-    return (vInicial);
+    return 0;
   else if (vInicial > 900.00 && vInicial <= 1800.00)
-    return (vInicial - 135.00);
-  return (vInicial - 360.00);
+    return (135.00);
+  return (360.00);
 }
 
-/*   Mostra todas as informações contidas   */
-/*  no array de estruturas q será utilizado */
-void imprimirRegistro (Registro* aux, FILE *arq)
+/*   Escreve no arquivo todas as informações contidas   */
+/*       no array de estruturas q será utilizado        */
+void imprimirRegistro (Registro* aux, FILE *arq, int TAM)
 {
   fprintf(arq, "\t\n*** - Registros cadastrados - ***\n\n");
-  for (int i = 1; i <= TAM; i++)
+  for (int i = 0; i < TAM; i++)
   {
     fprintf(arq, "Código [%d]...\n\n", i);
     fprintf(arq, "Matricula: %d\n", aux[i].matricula);
@@ -130,6 +130,33 @@ void imprimirRegistro (Registro* aux, FILE *arq)
       }
     }
     fprintf(arq, "\n\n");
+  }
+}
+
+void mostrarNaTela (Registro* aux, int TAM)
+{
+  printf("\t\n*** - Registros cadastrados - ***\n\n");
+  for (int i = 0; i < TAM; i++)
+  {
+    printf("Código [%d]...\n\n", i);
+    printf("Matricula: %d\n", aux[i].matricula);
+    printf("Nome: %s\n", aux[i].nome);
+    printf("Salário Bruto: %.2lf\n", aux[i].salarioBruto);
+    if (aux[i].tipoRescisao == 1)
+    {
+      printf("o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
+      printf("o valor do FGTS: %.2lf\n", FGTS(aux,i));
+      printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+    }
+    else
+    {
+      if(aux[i].tipoRescisao == 2)
+      {
+        printf("o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
+        printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+      }
+    }
+    printf("\n\n");
   }
 }
 

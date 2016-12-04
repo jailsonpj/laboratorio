@@ -1,0 +1,12 @@
+	
+*** - Registros cadastrados - ***
+
+Código [0]...
+
+Matricula: 12345
+Nome: jefferson lima de avilar
+Salário Bruto: 12345.78
+o valor do IRRF: 360.00
+o valor do 13 salario: 24691.56
+
+
