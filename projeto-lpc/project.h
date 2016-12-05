@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* Não recebe o tamanho, ponteiro cresce dinamicamente */
 //#define TAM 3 // Quantidade máxima de funcionários que podem ser registrados
 
 
@@ -111,7 +112,7 @@ void imprimirRegistro (Registro* aux, FILE *arq, int TAM)
   fprintf(arq, "\t\n*** - Registros cadastrados - ***\n\n");
   for (int i = 0; i < TAM; i++)
   {
-    fprintf(arq, "Código [%d]...\n\n", i);
+    fprintf(arq, "Código de cadastro [%d]...\n\n", i);
     fprintf(arq, "Matricula: %d\n", aux[i].matricula);
     fprintf(arq, "Nome: %s\n", aux[i].nome);
     fprintf(arq, "Salário Bruto: %.2lf\n", aux[i].salarioBruto);
@@ -119,14 +120,14 @@ void imprimirRegistro (Registro* aux, FILE *arq, int TAM)
     {
       fprintf(arq, "o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
       fprintf(arq, "o valor do FGTS: %.2lf\n", FGTS(aux,i));
-      fprintf(arq, "o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+      fprintf(arq, "o valor do 13º salário: %.2lf\n", calcula13(aux,i));
     }
     else
     {
       if(aux[i].tipoRescisao == 2)
       {
         fprintf(arq, "o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
-        fprintf(arq, "o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+        fprintf(arq, "o valor do 13º salário: %.2lf\n", calcula13(aux,i));
       }
     }
     fprintf(arq, "\n\n");
@@ -146,14 +147,14 @@ void mostrarNaTela (Registro* aux, int TAM)
     {
       printf("o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
       printf("o valor do FGTS: %.2lf\n", FGTS(aux,i));
-      printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+      printf("o valor do 13º salário: %.2lf\n", calcula13(aux,i));
     }
     else
     {
       if(aux[i].tipoRescisao == 2)
       {
         printf("o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
-        printf("o valor do 13 salario: %.2lf\n", calcula13(aux,i));
+        printf("o valor do 13º salário: %.2lf\n", calcula13(aux,i));
       }
     }
     printf("\n\n");
@@ -162,8 +163,9 @@ void mostrarNaTela (Registro* aux, int TAM)
 
 void recebeRegistros (Registro* aux, int posicao)
 {
-  int matricula;
-  char nome[100];
+  int matricula; // ou receber como char *, pra facilitar na hora da busca
+  char nome[100]; // char *nome;
+	// nome = (char *) malloc(sizeof(char));
   double salarioBruto;
   float ferias;
   float salario13;

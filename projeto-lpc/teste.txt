@@ -3,10 +3,10 @@
 
 Código [0]...
 
-Matricula: 12345
-Nome: jefferson lima de avilar
-Salário Bruto: 12345.78
+Matricula: 1234
+Nome: asdasd
+Salário Bruto: 1234.44
 o valor do IRRF: 360.00
-o valor do 13 salario: 24691.56
+o valor do 13 salario: 2468.88
 
 
