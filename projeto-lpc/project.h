@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/* Não recebe o tamanho, ponteiro cresce dinamicamente */
-//#define TAM 3 // Quantidade máxima de funcionários que podem ser registrados
-
 
 /* Estrutura com os dados que serão utilizados */
 typedef struct registro Registro;
@@ -112,25 +109,28 @@ void imprimirRegistro (Registro* aux, FILE *arq, int TAM)
   fprintf(arq, "\t\n*** - Registros cadastrados - ***\n\n");
   for (int i = 0; i < TAM; i++)
   {
-    fprintf(arq, "Código de cadastro [%d]...\n\n", i);
-    fprintf(arq, "Matricula: %d\n", aux[i].matricula);
-    fprintf(arq, "Nome: %s\n", aux[i].nome);
-    fprintf(arq, "Salário Bruto: %.2lf\n", aux[i].salarioBruto);
-    if (aux[i].tipoRescisao == 1)
+    if (aux[i].matricula != 0)
     {
-      fprintf(arq, "o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
-      fprintf(arq, "o valor do FGTS: %.2lf\n", FGTS(aux,i));
-      fprintf(arq, "o valor do 13º salário: %.2lf\n", calcula13(aux,i));
-    }
-    else
-    {
-      if(aux[i].tipoRescisao == 2)
+      fprintf(arq, "Código de cadastro [%d]...\n\n", i);
+      fprintf(arq, "Matricula: %d\n", aux[i].matricula);
+      fprintf(arq, "Nome: %s\n", aux[i].nome);
+      fprintf(arq, "Salário Bruto: %.2lf\n", aux[i].salarioBruto);
+      if (aux[i].tipoRescisao == 1)
       {
-        fprintf(arq, "o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
+        fprintf(arq, "o valor do IRRF: %.2lf\n",valorIRRF(aux,i));
+        fprintf(arq, "o valor do FGTS: %.2lf\n", FGTS(aux,i));
         fprintf(arq, "o valor do 13º salário: %.2lf\n", calcula13(aux,i));
       }
+      else
+      {
+        if(aux[i].tipoRescisao == 2)
+        {
+          fprintf(arq, "o valor do IRRF: %.2lf\n", valorIRRF(aux,i));
+          fprintf(arq, "o valor do 13º salário: %.2lf\n", calcula13(aux,i));
+        }
+      }
+      fprintf(arq, "\n\n");
     }
-    fprintf(arq, "\n\n");
   }
 }
 

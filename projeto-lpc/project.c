@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "project.h"
+#define TAM 3
 
 int main()
 {
@@ -9,7 +10,7 @@ int main()
   char url[] = "teste.txt"; // nome do arquivo que será lido
 
   Registro* registros;
-  registros = (Registro*) malloc(sizeof(Registro));
+  registros = (Registro*) malloc(sizeof(Registro) * TAM);
 
   FILE *arq;
   arq =  fopen(url, "w"); // ou "a" para append
@@ -36,6 +37,6 @@ int main()
         break;
     }
   }
-  
+
   return 0;
 }
